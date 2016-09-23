@@ -4,15 +4,10 @@ public class SaddlePoints {
 
 	public static ArrayList<Integer[]> findPoints(int[][] vals) {
 		ArrayList<Integer[]> saddlePoints = new ArrayList<Integer[]>();
-		int row;
-		int col;
 		for (int i = 0; i < vals.length; i++) {
 			for (int j = 0; j < vals[i].length; j++) {
-				row = i;
-				col = j;
-				if (isSaddlePointByRow(row, col, vals) && isSaddlePointByCol(row, col, vals)) {
-					Integer[] point = { i, j };
-					saddlePoints.add(point);
+				if (isSaddlePointByRow(i, j, vals) && isSaddlePointByCol(i, j, vals)) {
+					saddlePoints.add(new Integer[]{ i, j });
 				}
 			}
 		}
@@ -21,31 +16,23 @@ public class SaddlePoints {
 	}
 
 	private static boolean isSaddlePointByRow(int row, int col, int[][] vals) {
-		// TODO: return true only if it's greater than or equal to every other value in its row
+		// return true iff the value is greater than or equal to every other value in its row
 		int rowmax = 0;
-		for (int j = 0; j < vals.length; j++) {
-			if (vals[row][j]>rowmax) {
-					rowmax = vals[row][j];
-			}
+		for (int i = 0; i < vals[0].length; i++) {
+			if (vals[row][i] > rowmax) rowmax = vals[row][i];
 		}
-		if (vals [row][col] >= rowmax) {
-			return true;
-		}
-		else return false;
+
+		return (vals[row][col] >= rowmax);
 	}
 	
 	private static boolean isSaddlePointByCol(int row, int col, int[][] vals) {
-		// TODO: return true only if it's less than or equal to every other value in its column
+		// return true iff the value is less than or equal to every other value in its column
 		int colmin = 9;
 		for (int i = 0; i < vals.length; i++) {
-			if (vals[i][col]<colmin) {
-					colmin = vals[i][col];
-			}
+			if (vals[i][col] < colmin) colmin = vals[i][col];
 		}
-		if (vals [row][col] <= colmin) {
-			return true;
-		}
-		else return false;
+
+		return (vals[row][col] <= colmin);
 	}
 
 }
