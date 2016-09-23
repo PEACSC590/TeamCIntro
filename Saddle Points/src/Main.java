@@ -22,7 +22,8 @@ public class Main {
 				System.out.println("(" + (point[0] + 1) + ", " + (point[1] + 1) + ")");
 			}
 		}
-		
+		System.out.println("It works");
+		// line added to commit and push
 	}
 	
 }
