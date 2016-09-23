@@ -19,7 +19,7 @@ public class Main {
 			Integer[] point = new Integer[2];
 			for (int i = 0; i < saddlePoints.size(); i++) {
 				point = saddlePoints.get(i);
-				System.out.println((point[0] + 1) + ", " + (point[1] + 1));
+				System.out.println("(" + (point[0] + 1) + ", " + (point[1] + 1) + ")");
 			}
 		}
 		
